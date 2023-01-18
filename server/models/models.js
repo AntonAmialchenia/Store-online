@@ -159,7 +159,7 @@ Rating.belongsTo(Devise);
 Devise.hasMany(BasketDevise);
 BasketDevise.belongsTo(Devise);
 
-Devise.hasMany(DeviceInfo);
+Devise.hasMany(DeviceInfo, {as: 'info'});
 DeviceInfo.belongsTo(Devise);
 
 Type.belongsToMany(Brand, { through: TypeBrand });
