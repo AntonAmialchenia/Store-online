@@ -23,19 +23,22 @@ class DeviceController {
     }
 
     async getAll(req,res) {
-        let {brandId, typeId} = req.query
+        let {brandId, typeId, limit, page} = req.query
+        page = page || 1
+        limit = limit || 9
+        let offset = page * limit -limit
         let devices
         if (!brandId && !typeId) {
-            devices = await Devise.findAll()
+            devices = await Devise.findAndCountAll({limit, offset})
         }
         if (brandId && !typeId) {
-            devices = await Devise.findAll({where:{brandId}})
+            devices = await Devise.findAndCountAll({where:{brandId}, limit, offset})
         }
         if (!brandId && typeId) {
-            devices = await Devise.findAll({where: {typeId}})
+            devices = await Devise.findAndCountAll({where: {typeId}, limit, offset})
         }
         if (brandId && typeId) {
-            devices = await Devise.findAll({where: {brandId, typeId}})
+            devices = await Devise.findAndCountAll({where: {brandId, typeId}, limit, offset})
         }
 
         return res.json(devices)
