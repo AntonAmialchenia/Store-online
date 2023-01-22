@@ -30,7 +30,7 @@ export const publicRoutes = [
         Component: Auth
     },
     {
-        path: DEVISE_ROUTE,
+        path: DEVISE_ROUTE + '/:id',
         Component: DevicePage
     },
 ]
