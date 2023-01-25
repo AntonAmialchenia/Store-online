@@ -18,6 +18,7 @@ export default class DeviceStore {
   _brands: typesBrands[];
   _devices: devices[];
   _selectedType: {}
+  _selectedBrand: {}
 
   constructor() {
     this._types = [
@@ -25,10 +26,13 @@ export default class DeviceStore {
       { id: 2, name: 'Сматфоны' },
       { id: 3, name: 'Нотубуки' },
       { id: 4, name: 'Телевизоры' },
+      
     ];
     this._brands = [
       { id: 1, name: 'Samsung' },
       { id: 2, name: 'Apple' },
+      { id: 3, name: 'Asus' },
+      { id: 4, name: 'Lenovo' },
     ];
     this._devices = [
       {
@@ -59,8 +63,30 @@ export default class DeviceStore {
         rating: 5,
         img: 'https://images.unsplash.com/photo-1611791485440-24e8239a0377?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTIlMjBwcm98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
       },
+      {
+        id: 5,
+        name: 'Iphone 12 pro',
+        price: 25000,
+        rating: 5,
+        img: 'https://images.unsplash.com/photo-1611791485440-24e8239a0377?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTIlMjBwcm98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+      },
+      {
+        id: 6,
+        name: 'Iphone 12 pro',
+        price: 25000,
+        rating: 5,
+        img: 'https://images.unsplash.com/photo-1611791485440-24e8239a0377?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTIlMjBwcm98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+      },
+      {
+        id: 7,
+        name: 'Iphone 12 pro',
+        price: 25000,
+        rating: 5,
+        img: 'https://images.unsplash.com/photo-1611791485440-24e8239a0377?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTIlMjBwcm98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+      },
     ];
     this._selectedType = {}
+    this._selectedBrand = {}
     makeAutoObservable(this);
   }
 
@@ -76,6 +102,9 @@ export default class DeviceStore {
   setSelectedType(type: boolean) {
     this._selectedType = type
   }
+  setSelectedBrand(brand: boolean) {
+    this._selectedBrand = brand
+  }
 
   get types(): {} {
     return this._types;
@@ -88,5 +117,8 @@ export default class DeviceStore {
   }
   get selectedType(): {} {
     return this._selectedType;
+  }
+  get selectedBrand(): {} {
+    return this._selectedBrand;
   }
 }
