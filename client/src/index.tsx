@@ -1,6 +1,5 @@
 import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
-import { typesBrands, devices } from './store/DeviseStore';
 import App from './App';
 import UserStore from './store/UserStore';
 import DeviceStore from './store/DeviseStore';
@@ -13,7 +12,7 @@ import DeviceStore from './store/DeviseStore';
 // }
 // interface UserContext {
 //   _isAuth: boolean
-//   _user: {}
+//   _user: User
 // }
 export const Context = createContext<any | null>(null)
  

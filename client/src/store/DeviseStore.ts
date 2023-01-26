@@ -5,7 +5,7 @@ export type typesBrands = {
   name: string;
 };
 
-export type devices = {
+export type Devices = {
   id: number;
   name: string;
   price: number;
@@ -16,7 +16,7 @@ export type devices = {
 export default class DeviceStore {
   _types: typesBrands[];
   _brands: typesBrands[];
-  _devices: devices[];
+  _devices: Devices[];
   _selectedType: {}
   _selectedBrand: {}
 
@@ -96,7 +96,7 @@ export default class DeviceStore {
   setBrands(brands: typesBrands[]) {
     this._brands = brands;
   }
-  setDevices(devices: devices[]) {
+  setDevices(devices: Devices[]) {
     this._devices = devices;
   }
   setSelectedType(type: boolean) {

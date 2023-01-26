@@ -1,13 +1,15 @@
 import React, {useContext} from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from './../index';
-import { Row, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import { typesBrands } from '../store/DeviseStore';
+
 
 const BrandBar = () => {
     const {device} = useContext(Context)
     return (
         <div className='d-flex mt-2 flex-wrap'>
-            {device.brands.map((brand:any) => 
+            {device.brands.map((brand:typesBrands) => 
                 <Card
                     key={brand.id}
                     className='p-3'
