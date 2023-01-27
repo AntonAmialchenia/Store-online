@@ -10,7 +10,13 @@ const DevicePage = () => {
         rating: 5,
         img: 'https://images.unsplash.com/photo-1611791485440-24e8239a0377?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTIlMjBwcm98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
       }
-     
+    const description = [
+        {id:1, title: 'Оперативная память', description: '5 гб'},
+        {id:2, title: 'Камера', description: '12 мп'},
+        {id:3, title: 'Процессор', description: 'Snapdrgon 800'},
+        {id:4, title: 'Количество ядер', description: '2'},
+        {id:5, title: 'Аккумулятор', description: '4000 мА'},
+    ]
       
     return (
         <Container>
@@ -36,6 +42,14 @@ const DevicePage = () => {
                         <Button variant='outline-dark'>Добавить в корзину</Button>
                     </Card>
                 </Col>
+            </Row>
+            <Row className='d-flex flex-column m-3'>
+                <h1>Характеристики</h1>
+                {description.map((info, i) => 
+                    <Row key={info.id} style={{background: i % 2 === 0 ? 'lightgray' : 'transparent', fontSize: 20, padding: 10}}>
+                        {info.title}: {info.description}
+                    </Row>
+                )}
             </Row>
         </Container>
     );
