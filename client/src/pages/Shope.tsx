@@ -1,7 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import Col from 'react-bootstrap/esm/Col';
-import Row from 'react-bootstrap/esm/Row';
+import { Container, Col, Row } from 'react-bootstrap';
 import BrandBar from '../components/BrandBar';
 import DeviceList from '../components/DeviceList';
 import TypeBar from '../components/TypeBar';

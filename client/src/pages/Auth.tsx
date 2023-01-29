@@ -1,8 +1,5 @@
 import React from 'react';
-import { Container, Form } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/esm/Button';
-import Row from 'react-bootstrap/esm/Row';
+import { Container, Form, Card, Button} from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from './../utils/consts';
 
@@ -10,7 +7,6 @@ import { LOGIN_ROUTE, REGISTRATION_ROUTE } from './../utils/consts';
 const Auth = () => {
     const location = useLocation()
     const isLogin = location.pathname === LOGIN_ROUTE
-    console.log(location);
     
     return (
         <Container 

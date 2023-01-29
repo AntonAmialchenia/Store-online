@@ -3,11 +3,14 @@ import React, { useContext } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/esm/Button';
 import { NavLink } from 'react-router-dom';
-import { SHOP_ROUTE } from '../utils/consts';
+import { LOGIN_ROUTE, SHOP_ROUTE } from '../utils/consts';
 import { Context } from './../index';
+import { useNavigate } from 'react-router-dom';
+import { ADMIN_ROUTE } from './../utils/consts';
 
 const NavBar = () => {
   const { user } = useContext(Context);
+  const navigate = useNavigate()
   return (
     <Navbar bg="primary" variant="dark">
       <Container>
@@ -19,8 +22,13 @@ const NavBar = () => {
         </NavLink>
         {user.isAuth ? (
           <Nav className="ml-auto">
-            <Button>Админ панель</Button>
-            <Button style={{ marginLeft: 10 }}>Войти</Button>
+            <Button
+              onClick={() => navigate(ADMIN_ROUTE)}
+            >Админ панель</Button>
+            <Button 
+              style={{ marginLeft: 10 }}
+              onClick={() => navigate(LOGIN_ROUTE)}
+            >Выйти</Button>
           </Nav>
         ) : (
           <Nav className="ml-auto">
