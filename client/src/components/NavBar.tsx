@@ -1,11 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import Button from 'react-bootstrap/esm/Button';
-import { NavLink } from 'react-router-dom';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE, SHOP_ROUTE } from '../utils/consts';
 import { Context } from './../index';
-import { useNavigate } from 'react-router-dom';
 import { ADMIN_ROUTE } from './../utils/consts';
 
 const NavBar = () => {

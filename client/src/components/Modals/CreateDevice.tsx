@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Modal, Button, Form, Dropdown } from 'react-bootstrap';
+import { Modal, Button, Form, Dropdown, Row, Col } from 'react-bootstrap';
 import { ModalProps } from './CreateType';
 import { Context } from './../../index';
 import { typesBrands } from '../../store/DeviseStore';
@@ -12,10 +12,14 @@ interface info {
 
 const CreateDevice = ({ show, onHide }: ModalProps) => {
   const { device } = useContext(Context);
-  const [ info, setInfo]:any = useState([]);
+  const [ info, setInfo] = useState<info[] | never[]>([]);
 
   const addInfo = () => {
     setInfo([...info, { title: '', description: '', number: Date.now() }]);
+  };
+
+  const removeInfo = (number: number) => {
+    setInfo(info.filter(i => i.number !== number));
   };
 
   return (
@@ -61,11 +65,34 @@ const CreateDevice = ({ show, onHide }: ModalProps) => {
           <Form.Control className="mt-3" type="file" />
           <hr />
           <Button 
+                className='mb-3'
                 variant="outline-dark"
                 onClick={addInfo}
           >
             Добавить новое устройство
         </Button>
+        {info.map(i => 
+                <Row className='mb-3' key={i.number}>
+                    <Col md={4}>
+                        <Form.Control
+                            placeholder='Введите название свойства'
+                        />
+                    </Col>
+                    <Col md={4}>
+                        <Form.Control
+                            placeholder='Введите описание свойства'
+                        />
+                    </Col>
+                    <Col md={4}>
+                        <Button 
+                            onClick={() => removeInfo(i.number)}
+                            variant='outline-danger'
+                        >
+                            Удалить
+                        </Button>
+                    </Col>
+                </Row>
+        )}
         </Form>
       </Modal.Body>
       <Modal.Footer>
