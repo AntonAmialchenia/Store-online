@@ -4,17 +4,8 @@ import App from './App';
 import UserStore from './store/UserStore';
 import DeviceStore from './store/DeviseStore';
 
-// interface DeviceContext {
-//   _types: typesBrands[]
-//   _brands: typesBrands[]
-//   _devices: devices[]
-//   _selectedType: {}
-// }
-// interface UserContext {
-//   _isAuth: boolean
-//   _user: User
-// }
 export const Context = createContext<any | null>(null)
+console.log(process.env.REACT_APP_API_URL);
  
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
